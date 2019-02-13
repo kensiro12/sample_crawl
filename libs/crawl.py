@@ -28,12 +28,8 @@ def getPageStr(pageNo):
     driver.find_element_by_xpath('//*[@id="container"]/div[1]/nav/ul/li[9]/a').click()
 
 
-    base_url = 'http://soramall.net/shop/goods/goods_list.php?np={}&sp=1&category=022&sort=hit&order=desc'
-    url = base_url.format(pageNo)
-    driver.get(url)
-    html = driver.page_source
 
-    return html
+    return driver
 
     #driver.quit()
 

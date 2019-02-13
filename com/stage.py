@@ -10,8 +10,14 @@ from libs.parser import parse
 
 
 for pageNo in range(1, 3):
-    pageString = getPageStr(pageNo)
-    result = parse(pageString)
+    driver = getPageStr(pageNo)
+
+    base_url = 'http://soramall.net/shop/goods/goods_list.php?np={}&sp=1&category=022&sort=hit&order=desc'
+    url = base_url.format(pageNo)
+    driver.get(url)
+    html = driver.page_source
+
+    result = parse(html)
 
 # 반복문을 실행할 경우, 매번 새롭게 접속을 하게 되는데, 이렇게 구현되는게 맞는지?
 
