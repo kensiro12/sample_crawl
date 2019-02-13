@@ -9,12 +9,12 @@ from libs.parser import parse
        # return html
 
 
+driver = getPageStr(1)
 for pageNo in range(1, 3):
-    driver = getPageStr(pageNo)
 
     base_url = 'http://soramall.net/shop/goods/goods_list.php?np={}&sp=1&category=022&sort=hit&order=desc'
     url = base_url.format(pageNo)
-    driver.get(url)
+    driver = driver.get(url)
     html = driver.page_source
 
     result = parse(html)
